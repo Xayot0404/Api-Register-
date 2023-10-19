@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'navbar.html' %}
+    {% block content %}
+    
+    <div class="container">
+        <div class="row justify-content-center vh-100 align-items-center">
+            <div class="col-6 h-75">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-warning" role="alert">
+                        {{message}}
+                    </div>mening first_name
+                    {% endfor %}
+                {% endif %}
+                <form action="{% url 'login' %}" class=" form border h-100 p-3 rounded-2 shadow-lg"  method="POST">
+                    {% csrf_token %}
+                    {{ form.as_ul }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>    
+            </div>
+        </div>
+    </div>
+        
+    {% endblock content %}
+</body>
+</html>

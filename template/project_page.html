@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+</head>
+<body style="background-color:yellowgreen;">
+    {% extends 'navbar.html' %}
+        {% block content %}
+        <p><strong class="text-danger">backend soni: {{project_page}} ta</strong></p>
+        <p><strong class="text-danger">frontend soni: {{proyect}} ta</strong> </p>
+        <p><strong class="text-danger">Umumiy projectlar soni: {{al}} ta</strong> </p>
+        <div class="col-12">
+            <div class="row">
+                {% for project in projectss %}
+                    <div  class="col-3">
+                        <a href="{% url 'comment' project.id %}">
+                            <div class="card">
+                                <div class="card_image">
+                                    <img style="height: 200px; width: 100%;" src="{{project.project_image.url}}" alt="">
+                                </div>
+                                <h1 style="margin: 2%;">{{project.name}}</h1>
+                                <p style="margin: 2%;">narxi: <strong class="text-danger">{{project.price}}</strong></p>
+                                <a  style="margin: 2%;" href="{{project.gitHub_link}}">gitHub_link</a>
+                                <br>
+                                <p style="margin: 2%;">yonalish: <strong class="text-primary">{{project.yonalish}}</strong></p>
+                                <p style="margin: 2%;">{{project.data}}</p>
+                                <p>{{count_hits}}</p>
+                                
+                            </div>
+                        </a>
+                        
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endblock content %}
+</body>
+</html>

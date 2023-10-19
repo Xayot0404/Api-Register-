@@ -1,0 +1,27 @@
+
+    {% extends 'navbar.html' %}
+        {% block content %}
+        <div class="row">
+            <div class="col-6">
+                <div class="text_center">
+                    {% for online in online_user %}
+                        <li>{{ online.user.username }}</li>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+            
+        {% endblock content %}
+    
+</body>
+</html>
+

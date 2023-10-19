@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'navbar.html' %}
+    {% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">delete project</h1>
+        </div>
+        <div class="col-md-12">
+            <form  action="{% url 'delete_project' delete_project.id %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p><strong>{{ delete_project.name }}</strong> projecti o'chirilsinmi </p>
+                <button class="btn btn-danger">delete project</button>
+                <br>
+                <a href="{% url 'project' %}" class="btn mt-3 btn-primary">not delete</a>
+            </form>
+            <br>
+        </div>
+        
+    </div>
+    
+    {% endblock content %}
+</body>
+</html>

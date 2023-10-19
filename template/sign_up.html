@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'navbar.html' %}
+    {% load crispy_forms_tags  %}
+    {% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <h1>sign up</h1>
+                <form action="{% url 'sign_up' %}" method="POST">
+                    {% csrf_token %}
+                    <table>
+                        {% for f in form %}
+                        <tr>
+                            <td>{{f.label}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{f}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <button>send</button>
+
+
+
+                </form>
+
+            </div>
+        </div>
+        
+                    
+                    
+    {% endblock content %}

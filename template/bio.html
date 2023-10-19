@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'navbar.html' %}
+        {% block content %}
+        <div class="row">
+            <div class="col-md-6">
+                <form action="{% url 'bio' %}" method="POST">
+                    {% csrf_token %}
+                </form>
+            </div>
+            
+        </div>
+            <div class="col-md-12">
+                <div class="text-center" class="card">
+                    <img style="height: 100px; width: 100px;" src="{{data.profil_image.url}}" alt="">
+                    <h1>{{ data.name }}</h1>
+                    <h1>{{ data.email }}</h1>
+                    <h1>{{ data.tel_nomer }}</h1>
+
+                    
+                </div>
+            </div>
+            
+
+        {% endblock content %}
+</body>
+</html>
